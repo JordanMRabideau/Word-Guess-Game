@@ -1,0 +1,14 @@
+/* Used for special fonts */
+    /* font-family: 'Roboto', sans-serif;
+    font-family: 'Righteous', cursive; */
+
+body {
+
+}
+
+.title {
+    font-family: 'Righteous', cursive;
+    font-size: 48px;
+    margin-top: 1em;
+}
+
