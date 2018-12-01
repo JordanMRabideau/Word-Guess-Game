@@ -4,6 +4,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    color: oldlace;
+    background-image: url(../images/folk-pattern-black.png);
 }
 
 .title {
@@ -17,11 +19,12 @@ body {
 }
 
 .border {
-    border-style: dashed;
+    border-style: dashed!important;
+    border-color: oldlace;
 }
 
 .row-centered {
-    text-align:center;
+    justify-content: center
 }
 
 .col-centered {

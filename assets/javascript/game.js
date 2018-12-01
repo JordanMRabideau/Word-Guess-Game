@@ -1,7 +1,10 @@
-var wordArray [
+
+
+var wordArray= [
     "Mario",
     "Zelda",
     "Animal Crossing",
-    "Half Life",
-    
+    "Half Life",   
 ]
+
+console.log(wordArray)

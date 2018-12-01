@@ -9,7 +9,9 @@
     </head>
 
     <body>
+
         <div class="container">
+           <!-- Page title -->
             <div class="row">
                 <div class= 'col-md-12 title text-center'>
                     <p>Videogame Hangman!</p>
@@ -17,18 +19,27 @@
             </div>
 
             <div class="row row-centered">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class= 'col-md-auto leftColumn border border-right-0 text-center' style="height: 200px">
-                            <p>winning image will go here</p>
-                        </div>
+                <!--The left column should disply an image at the start of the game, and should 
+                replace this image with others depending on the word being guessed, and if the player correctly 
+                guesses it  -->
+                <div class= 'col-md-auto leftColumn border border-right-0 text-center' style="height: auto">
+                    <p>*winning image will go here*</p>
+                </div>
 
-                        <div class= 'col-md-auto rightColumn border text-center' style="height: 200px">
-                            <p>Press any key to begin the game!</p>
-                        </div>
-                    </div>
+                <!-- The right column should contain the game itself, including directions, number of wins,
+                number of guesses remaining, and a list of previosly guessed letters -->
+                <div class= 'col-md-auto rightColumn border text-center' style="height: auto">
+                    <p>Press any key to begin the game!</p>
+                    <p id="wins"></p>
+                    <p>Current word:</p>
+                    <p id="word"></p>
+                    <p id="triesLeft"></p>
+                    <p id="guesses"></p>
+                    <button type="button" class="btn btn-outline-light mb-2">New game</button>
                 </div>
             </div>
+                
+            
         </div>
     </body>
 </html>
