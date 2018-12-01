@@ -3,7 +3,7 @@
     font-family: 'Righteous', cursive; */
 
 body {
-
+    font-family: 'Roboto', sans-serif;
 }
 
 .title {
@@ -12,3 +12,20 @@ body {
     margin-top: 1em;
 }
 
+.main {
+    width: 100%;
+}
+
+.border {
+    border-style: dashed;
+}
+
+.row-centered {
+    text-align:center;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    text-align: center;
+}
