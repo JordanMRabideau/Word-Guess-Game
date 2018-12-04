@@ -23,22 +23,23 @@
                 <!--The left column should disply an image at the start of the game, and should 
                 replace this image with others depending on the word being guessed, and if the player correctly 
                 guesses it  -->
-                <div class= 'col-md-auto leftColumn border border-right-0 text-center' style="height: auto">
-                    <p>*winning image will go here*</p>
+                <div class= 'col-md-4 leftColumn border border-right-0 text-center' style="height: auto">
+                    <img class="mt-2" id = "winImage" src="assets/images/winner.jpg" alt="winner">
+                    <img class="mt-2" id = "loseImage" src="assets/images/loser.jpg" alt="loser">
+                    <p id="tryAgain">Press any key to play again!</p>
                 </div>
 
                 <!-- The right column should contain the game itself, including directions, number of wins,
                 number of guesses remaining, and a list of previosly guessed letters -->
-                <div class= 'col-md-auto rightColumn border text-center' style="height: auto">
-                    <script src="assets/javascript/game.js"></script>
+                <div class= 'col-md-4 rightColumn border text-center' style="height: auto">
                     <p>Press any key to begin the game!</p>
-                    <p id="wins">Wins: <span id="winNum"></span></p>
+                    <p>Wins: <span id="winNum"></span></p>
                     <p>Current word:</p>
                     <p id="word"></p>
                     <p id="triesLeft">Guesses left: <span id="tryNum"></span></p>
                     <p>Guessed letters:</p>
                     <p id="guesses"></p>
-                    <button type="button" class="btn btn-outline-light mb-2">New game</button>
+                    <script src="assets/javascript/game.js"></script>
                 </div>
             </div>
                 
