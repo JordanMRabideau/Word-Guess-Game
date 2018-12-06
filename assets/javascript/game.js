@@ -1,5 +1,4 @@
 
-
 // Array from which the computer picks the word
 var wordArray= [
     "MARIO",
@@ -17,53 +16,83 @@ var wordArray= [
     "CASTLEVANIA",
     "PAC-MAN",
     "FALLOUT", 
-    "FINAL FANTASY",
-    "LEGACY OF KAIN",
     "MONKEY ISLAND",
     "RATCHET AND CLANK",
     "SLY COOPER",
-    "KATAMARI DAMACY",
     "PERSONA",
-    "DRAGON QUEST",
-    "MONSTER HUNTER",
-    "YAKUZA",
-    "OVERWATCH",
-    "GRAND THEFT AUTO",
     "WOLFENSTEIN",
     "SPYRO",
     "STARCRAFT",
-    "CALL OF DUTY",
     "SONIC",
-    "GUILD WARS",
     "DIABLO",
-    "LEAGUE OF LEGENDS",
-    "SLIME RANCHER",
-    "RAYMAN",
-    "CRASH BANDICOOT",
     "POKEMON",
+    "KIRBY",
 ];
+
+var hintArray = [
+    "A friendly Italian plumber",
+    "A boy in green saves the kingdom",
+    "You run a small town full of animal people",
+    "You play as the world's worst theoretical physicist",
+    "A space marine saves the galaxy from giant jewelry",
+    "Everybody gets together from their seperate universes to fight to the death",
+    "You find out if love can bloom on the battlefield",
+    "An angry mute fights demons forever",
+    "Play as different murderers through time",
+    "HADOUKEN",
+    "For the Horde!",
+    "Terrorists and Counterterrorists fight in a dusty place",
+    "A family tries to stop an undying evil",
+    "Yellow circle eats smaller circles",
+    "Post apocalyptic hijinks",
+    "An incompetent pirate fights a zombie",
+    "A furry animal and his robot pal save multiple galaxies, several times",
+    "A racoon steals things",
+    "Japanese teenagers solve crimes and fight demons",
+    "Fighting nazis, 'nuff said",
+    "A dragon gathers treasure",
+    "Space marines, space elves, or space bugs: pick your poison",
+    "Blue rodent goes fast",
+    "Get loot anf fight the Devil",
+    "Magical animals are caught and forced to fight each other",
+    "A cute pink ball with the power to destroy the universe",
+]
 
 // Variables that reference the html
 
 
 const maxTries = 6         //Max number of tries
 var currentWordIndex;       //current word's index number
+var wordText = wordArray[currentWordIndex];
 var guessingWord = [];      //stores properly guessed letters
 var remainingGuesses = 0;
 var gameFinished = false;   //used to tell if the game has finished
 var wins = 0;               //number of times user has successfully guessed a word
 var guessedLetters = [];    //array of previously guessed letters
 
+var type1 = new Audio('assets/sounds/type1.wav');
+var type2 = new Audio('assets/sounds/type2.wav');
+var type3 = new Audio('assets/sounds/type3.wav');
+var type4 = new Audio('assets/sounds/type4.wav');
+var type5 = new Audio('assets/sounds/type5.wav');
 var zelda = new Audio('assets/sounds/LOZ_Chest.mp3');
 var finalFant = new Audio('assets/sounds/ffwin.mp3');
 var marioWin = new Audio('assets/sounds/marioWin.mp3');
+var pacman = new Audio('assets/sounds/pacman.mp3')
+
 var winSounds = [
     zelda,
     finalFant,
     marioWin,
 ];
 
-var pacman = new Audio('assets/sounds/pacman.mp3')
+var typeSounds = [
+    type1,
+    type2,
+    type3,
+    type4,
+    type5,
+]
 
 function randomSound(soundArray) {
     var soundIndex = Math.floor(Math.random() * soundArray.length);
@@ -77,7 +106,7 @@ function updateDisplay() {
     for (var i = 0; i < guessingWord.length; i++) {
         guessingWordText += guessingWord[i]
     }
-
+    document.getElementById("hint").innerText = hintArray[currentWordIndex];
     document.getElementById("word").innerText = guessingWordText;
     document.getElementById("tryNum").innerText = remainingGuesses;
     document.getElementById("guesses").innerText = guessedLetters;
@@ -99,7 +128,10 @@ function resetGame() {
         }
         console.log(wordArray[currentWordIndex]);
     }
-
+    gameFinished = false;
+    document.getElementById("hintButton").style.cssText= "display: flex-center";
+    document.getElementById("hint").innerText = hintArray[currentWordIndex];
+    document.getElementById("hint").style.cssText= "display: none";
     document.getElementById("tryAgain").style.cssText= "display: none";
     document.getElementById("winImage").style.cssText= "display: none";
     document.getElementById("loseImage").style.cssText= "display: none";
@@ -137,6 +169,8 @@ function checkWin() {
         wins++;
         randomSound(winSounds);
         gameFinished = true;
+        document.getElementById("hintButton").style.cssText= "display: none";
+        document.getElementById("hint").style.cssText= "display: none";
         document.getElementById("winImage").style.cssText= "display: flex-center";
         document.getElementById("tryAgain").style.cssText= "display: block";
    }
@@ -145,17 +179,23 @@ function checkWin() {
 function checkLoss() {
     if (remainingGuesses <= 0) {
         pacman.play();
+        gameFinished = true;
+        document.getElementById("word").innerText = wordArray[currentWordIndex];
         document.getElementById("loseImage").style.cssText= "display: flex-center";
         document.getElementById("tryAgain").style.cssText= "display: block";
     }
 }
 
+document.getElementById("hintButton").onclick = function() {
+    document.getElementById("hint").style.cssText = "display: flex-center";
+}
 document.onkeydown = function(event) {
     if(gameFinished == true) {
         resetGame();
         gameFinished = false;
     } else {
         if (event.keyCode >= 65 && event.keyCode <= 90) {
+            randomSound(typeSounds);
             makeGuess(event.key.toUpperCase());
             updateDisplay();
             checkWin();
@@ -168,3 +208,4 @@ resetGame();
 updateDisplay();
 
 console.log(guessingWord)
+console.log(wordArray[currentWordIndex])

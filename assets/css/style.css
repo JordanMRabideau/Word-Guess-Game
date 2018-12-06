@@ -36,3 +36,11 @@ body {
 img {
     width: 80%;
 }
+
+.btn {
+    border-style: dashed;
+}
+
+#word {
+    border-style: dotted;
+}

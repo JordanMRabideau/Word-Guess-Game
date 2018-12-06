@@ -23,22 +23,24 @@
                 <!--The left column should disply an image at the start of the game, and should 
                 replace this image with others depending on the word being guessed, and if the player correctly 
                 guesses it  -->
-                <div class= 'col-md-4 leftColumn border border-right-0 text-center' style="height: auto">
+                <div class= 'col-md-5 leftColumn border border-right-0 text-center' style="height: auto">
                     <img class="mt-2" id = "winImage" src="assets/images/winner.jpg" alt="winner">
                     <img class="mt-2" id = "loseImage" src="assets/images/loser.jpg" alt="loser">
                     <p id="tryAgain">Press any key to play again!</p>
+                    <button type="button" id= "hintButton" class="btn mt-5 btn-lg btn-outline-light">Press for hint!</button>
+                    <h3 id="hint" class="mt-2"></h3>
                 </div>
 
                 <!-- The right column should contain the game itself, including directions, number of wins,
                 number of guesses remaining, and a list of previosly guessed letters -->
-                <div class= 'col-md-4 rightColumn border text-center' style="height: auto">
-                    <p>Press any key to begin the game!</p>
-                    <p>Wins: <span id="winNum"></span></p>
-                    <p>Current word:</p>
-                    <p id="word"></p>
-                    <p id="triesLeft">Guesses left: <span id="tryNum"></span></p>
-                    <p>Guessed letters:</p>
-                    <p id="guesses"></p>
+                <div class= 'col-md-5 rightColumn border text-center' style="height: auto">
+                    <h4>Press any key to begin the game!</h4>
+                    <h3>Wins: <span id="winNum"></span></h3>
+                    <h4>Current word:</h3>
+                    <h4 id="word"></h4>
+                    <h4 id="triesLeft">Guesses left: <span id="tryNum"></span></h4>
+                    <h4>Guessed letters:</h4>
+                    <h4 id="guesses"></h4>
                     <script src="assets/javascript/game.js"></script>
                 </div>
             </div>
